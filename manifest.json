@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "Fill Murray",
+  "version": "0.1.0",
+  "description": "Replace images with Bill Murray",
+
+  "icons": { "128": "icon.png" },
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Fill with Murray!"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "permissions": ["activeTab"]
+
+}
