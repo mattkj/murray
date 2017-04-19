@@ -8,13 +8,19 @@ function fillMurray() {
 }
 
 function replaceText() {
-  const elements = Array.from(document.querySelector('body').children);
+  console.info('Replacing text...');
+
+  const elements = Array.from(document.querySelector('body').getElementsByTagName('*'));
+  const title = document.querySelector('title');
 
   elements.forEach(element => {
-    if (element.textContent.includes('tv series')){
-      console.log(element.textContent);
+    if (element.innerHTML.includes('Mr.')){
+      element.innerHTML = element.innerHTML.replace(/(mr|mr\.+)\s(\w+)/gi, 'Mr. Murray');
     }
   });
+
+  title.textContent = "Bill F*cking Murray";
 }
 
+replaceText();
 fillMurray();
