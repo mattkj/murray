@@ -24,7 +24,7 @@ function replaceText() {
 
 function replaceHeadings(movies){
   console.info('Replacing headings...');
-
+  
   const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
   headings.forEach((heading) => {
     const randomNum = Math.floor(Math.random() * movies.length);
@@ -32,18 +32,29 @@ function replaceHeadings(movies){
   });
 }
 
+
 function getMovies(){
-  let movies = [];
 
-  console.info('Fetching movies from api...');
+// check if local storage key exists
+// if YES, retrieve key value and pass to replaceHeadings()
+// if NO, get data from api, set local storage and pass to replaceHeadings()
 
-  fetch('https://moviesapi.com/m.php?i=0000195&type=person&r=json')
-    .then(response => response.json())
-    .then(data => {
-      movies = data.movies_act.split(',');
-      replaceHeadings(movies);
-    })
-    .catch(error => console.log('Fetch error: ', error.message));
+  chrome.storage.local.get('movies', function(item){
+    if (item.hasOwnProperty('movies')){
+      console.info('Fetching movies from local storage...');
+      replaceHeadings(item.movies);
+    } else {
+      console.info('Fetching movies from api...');
+      fetch('https://moviesapi.com/m.php?i=0000195&type=person&r=json')
+        .then(response => response.json())
+        .then(data => {
+          chrome.storage.local.set({'movies': data.movies_act.split(',')}, function(item){
+            replaceHeadings(item.movies);
+          });
+        })
+        .catch(error => console.log('Fetch error: ', error.message));
+    }
+  });
   
 }
 
@@ -60,17 +71,13 @@ function storageTest(){
         myData = items.myKey;
       });
     }
-
-    console.log(myData);
-    // chrome.storage.local.clear(function(items){
-    //   console.log('Storage items after clear: ', items);
-    // });
   });
 
 }
 
-storageTest();
+
+// storageTest();
 
 // replaceText();
 // fillMurray();
-// getMovies();
+getMovies();
