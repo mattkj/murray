@@ -58,26 +58,6 @@ function getMovies(){
   
 }
 
-function storageTest(){
-  console.log('storageTest');
-  let myData;
-
-  chrome.storage.local.get('myKey', function(items){
-    console.log('Storage items: ', items);
-    if (items.hasOwnProperty('myKey')){
-      myData = items.myKey;
-    } else {
-      chrome.storage.local.set({'myKey': 'myValue'}, function(items){
-        myData = items.myKey;
-      });
-    }
-  });
-
-}
-
-
-// storageTest();
-
-// replaceText();
-// fillMurray();
+replaceText();
+fillMurray();
 getMovies();
