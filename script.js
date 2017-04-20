@@ -47,6 +47,30 @@ function getMovies(){
   
 }
 
-replaceText();
-fillMurray();
-getMovies();
+function storageTest(){
+  console.log('storageTest');
+  let myData;
+
+  chrome.storage.local.get('myKey', function(items){
+    console.log('Storage items: ', items);
+    if (items.hasOwnProperty('myKey')){
+      myData = items.myKey;
+    } else {
+      chrome.storage.local.set({'myKey': 'myValue'}, function(items){
+        myData = items.myKey;
+      });
+    }
+
+    console.log(myData);
+    // chrome.storage.local.clear(function(items){
+    //   console.log('Storage items after clear: ', items);
+    // });
+  });
+
+}
+
+storageTest();
+
+// replaceText();
+// fillMurray();
+// getMovies();
