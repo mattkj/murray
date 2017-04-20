@@ -22,9 +22,14 @@ function replaceText() {
   title.textContent = "Bill F*cking Murray";
 }
 
-function replaceHeadings(){
+function replaceHeadings(movies){
+  console.info('Replacing headings...');
+
   const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-  console.log({headings});
+  headings.forEach((heading) => {
+    const randomNum = Math.floor(Math.random() * movies.length);
+    heading.textContent = movies[randomNum];
+  });
 }
 
 function getMovies(){
@@ -35,11 +40,10 @@ function getMovies(){
   fetch('https://moviesapi.com/m.php?i=0000195&type=person&r=json')
     .then(response => response.json())
     .then(data => {
-      movies.push(data.movies_act.split(','));
+      movies = data.movies_act.split(',');
+      replaceHeadings(movies);
     })
     .catch(error => console.log('Fetch error: ', error.message));
-
-  console.log(movies);
   
 }
 
