@@ -10,6 +10,10 @@ A Bill Murray Chrome extension
 
 ## How to install it?
 
+- Download and extract the zip file
+- in the chrome address bar type chrome://extensions
+- Drag and drop the murray folder on to the page
+
 ## Why did you make this?
 
 ## What did you learn?
