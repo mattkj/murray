@@ -5,7 +5,7 @@ A Bill Murray Chrome extension
 - Replaces all ```<img>``` elements with Bill Murray photos from http://www.fillmurray.com/
 - Changes page title to "Bill F\*cking Murray"
 - Replaces all instances of "Mr." to "Mr. Murray"
-- Replaces all \<h1> to \<h6> tags with Bill Murray movie titles from https://moviesapi.com/
+- Replaces all ```<h1>``` to ```<h6>``` tags with Bill Murray movie titles from https://moviesapi.com/
 
 
 ## How to install and use it?
