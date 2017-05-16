@@ -15,7 +15,3 @@ A Bill Murray Chrome extension
 - Drag and drop the *murray* folder on to the page
 - Visit any page you want to murrayize (Suggestion: https://www.google.com/search?q=mr+robot)
 - Click on the Bill Murray icon in your toolbar!
-
-## Why did you make this?
-
-## What did you learn?
