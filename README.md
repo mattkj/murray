@@ -1,6 +1,8 @@
 # Murray
 A Bill Murray Chrome extension
 
+![murray](icon.png?raw=true "murray")
+
 ## What does it do?
 - Replaces all ```<img>``` elements with Bill Murray photos from http://www.fillmurray.com/
 - Changes page title to "Bill F\*cking Murray"
